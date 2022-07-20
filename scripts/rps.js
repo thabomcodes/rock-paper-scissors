@@ -1,6 +1,19 @@
 let playerScore = 0;
 let computerScore = 0;
 
+
+//===============================================================
+//                 QUERY SELECTORS
+//================================================================
+const gameContainer = document.querySelector('.game-container');
+const buttonContainer = document.querySelector('.buttons-container')
+
+// player score
+const pScore = document.querySelector("span#human-score");
+// computer score
+const cScore = document.querySelector("span#computer-score");
+
+
 function getComputerChoice() {
     const rps = ["rock", "paper", "scissors"];
     const choice = Math.floor(Math.random() * 3);
@@ -30,10 +43,45 @@ function playRound(playerSelection, computerSelection) {
         return "Error!";
     }
 }
-
-function playerChooses(choice) {
-    roundOutcome = playRound(choice, getComputerChoice());
+function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.substring(1);
 }
+function playerChooses(playerChoice) {
+    var resultMsg;
+    //  check in result message already exists
+    if (document.querySelector(".result-message")) {
+        resultMsg = document.querySelector(".result-message")
+    } else {
+        resultMsg = document.createElement("h3");
+        resultMsg.className = "result-message";
+        gameContainer.insertBefore(resultMsg, buttonContainer)
+    }
+    const computerChoice = getComputerChoice();
+    const roundOutcome = playRound(playerChoice, computerChoice);
+
+    if (roundOutcome == 'win') {
+        if (playerChoice == "scissors") {
+            resultMsg.innerText = `You win! ${capitalize(playerChoice)} beat ${capitalize(computerChoice)}.`;
+        } else {
+            resultMsg.innerText = `You win! ${capitalize(playerChoice)} beats ${capitalize(computerChoice)}.`;
+        }
+    }
+    else if (roundOutcome == 'lose') {
+        if (playerChoice == "scissors") {
+            resultMsg.innerText = `You lose! ${capitalize(playerChoice)} are beaten by ${capitalize(computerChoice)}.`;
+        } else {
+            resultMsg.innerText = `You lose! ${capitalize(playerChoice)} is beaten by ${capitalize(computerChoice)}.`;
+        }
+    } else {
+        if (playerChoice == "scissors") {
+            resultMsg.innerText = `Tie! ${capitalize(playerChoice)} tie with ${capitalize(computerChoice)}.`;
+        } else {
+            resultMsg.innerText = `Tie! ${capitalize(playerChoice)} ties with ${capitalize(computerChoice)}.`;
+        }
+    }
+
+}
+
 
 const rockBtn = document.querySelector("button#rock");
 const paperBtn = document.querySelector("button#paper");
