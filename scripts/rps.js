@@ -60,6 +60,7 @@ function playerChooses(playerChoice) {
     const roundOutcome = playRound(playerChoice, computerChoice);
 
     if (roundOutcome == 'win') {
+        resultMsg.style.color = "green";
         if (playerChoice == "scissors") {
             resultMsg.innerText = `You win! ${capitalize(playerChoice)} beat ${capitalize(computerChoice)}.`;
         } else {
@@ -67,12 +68,14 @@ function playerChooses(playerChoice) {
         }
     }
     else if (roundOutcome == 'lose') {
+        resultMsg.style.color = "red";
         if (playerChoice == "scissors") {
             resultMsg.innerText = `You lose! ${capitalize(playerChoice)} are beaten by ${capitalize(computerChoice)}.`;
         } else {
             resultMsg.innerText = `You lose! ${capitalize(playerChoice)} is beaten by ${capitalize(computerChoice)}.`;
         }
     } else {
+        resultMsg.style.color = "yellow";
         if (playerChoice == "scissors") {
             resultMsg.innerText = `Tie! ${capitalize(playerChoice)} tie with ${capitalize(computerChoice)}.`;
         } else {
