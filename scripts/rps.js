@@ -1,6 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
-
+let roundNumber = 0;
 
 //===============================================================
 //                 QUERY SELECTORS
@@ -22,6 +22,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    roundNumber++;
     const playerMove = playerSelection.toLowerCase();
     const computerMove = computerSelection.toLowerCase();
 
