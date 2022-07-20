@@ -26,8 +26,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-for (let i = 0; i < 5; i++) {
-    const playerMove = prompt("Rock, Paper or Scissors? ");
-    const computerMove = getComputerChoice();
-    console.log(playRound(playerMove, computerMove))
-}
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    // add event listener for each button
+    button.addEventListener('click', () => {
+        alert(button.id);
+    });
+
+});
