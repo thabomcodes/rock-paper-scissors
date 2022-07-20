@@ -24,7 +24,7 @@ body {
   margin: 0px;
 }
 .header-container > h2 {
-  padding-top: 10px;
+  padding-top: 15px;
   font-size: 24px;
 }
 .results-container {
@@ -48,6 +48,9 @@ body {
 .human-results > div:first-of-type,
 .computer-results > div:first-of-type {
   padding-bottom: 10px;
+}
+.result-message {
+  text-align: center;
 }
 .buttons-container {
   display: flex;
