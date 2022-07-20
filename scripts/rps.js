@@ -7,6 +7,7 @@ let computerScore = 0;
 //================================================================
 const gameContainer = document.querySelector('.game-container');
 const buttonContainer = document.querySelector('.buttons-container')
+const dialogbox = document.querySelector(".gameover-popup");
 
 // player score
 const pScore = document.querySelector("span#human-score");
@@ -87,6 +88,9 @@ function playerChooses(playerChoice) {
     }
 
 }
+function showDialog() {
+    dialogbox.style.display = "block";
+}
 function gameOver() {
     if (computerScore < 5 && playerScore < 5) {
         return false;
@@ -98,26 +102,30 @@ const rockBtn = document.querySelector("button#rock");
 const paperBtn = document.querySelector("button#paper");
 const scissorsBtn = document.querySelector("button#scissors");
 
+//function disableButtons();
+
 /* Event Listener */
 rockBtn.addEventListener('click', function () {
-    if (!gameOver()) {
-        playerChooses('rock')
-    } else {
-        this.disabled = true;
+    playerChooses('rock');
+    this.disabled = gameOver();
+    if (this.disabled) {
+        setTimeout(showDialog, 2000); // wait 2 seconds and show the dialog box
     }
 });
 paperBtn.addEventListener('click', function () {
-    if (!gameOver()) {
-        playerChooses('paper')
-    } else {
-        this.disabled = true;
+
+    playerChooses('paper')
+    this.disabled = gameOver();
+    if (this.disabled) {
+        setTimeout(showDialog, 2000); // wait 2 seconds and show the dialog box
     }
 });
 scissorsBtn.addEventListener('click', function () {
-    if (!gameOver()) {
-        playerChooses('scissors')
-    } else {
-        this.disabled = true;
+    playerChooses('scissors')
+    this.disabled = gameOver();
+    if (this.disabled) {
+        setTimeout(showDialog, 2000); // wait seconds and show the dialog box
     }
 });
+
 
