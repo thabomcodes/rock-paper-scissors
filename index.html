@@ -6,25 +6,39 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <main>
-      <div class="header-container">
-        <h1>Rock, Paper, Scissors?</h1>
-        <h2>The first to win five rounds wins the game.</h2>
-      </div>
-      <div class="results-container">
-        <div class="human-results">
-          <div>You</div>
-          <div>Score: <span id="#human-score">0</span></div>
+    <main class="main-page">
+      <div class="game-container">
+        <div class="header-container">
+          <h1>Rock, Paper, Scissors?</h1>
+          <h2>The first to win five rounds wins the game.</h2>
         </div>
-        <div class="computer-results">
-          <div>Computer</div>
-          <div>Score: <span id="#human-score">0</span></div>
+        <div class="results-container">
+          <div class="human-results">
+            <div>You</div>
+            <div>Score: <span id="#human-score">0</span></div>
+          </div>
+          <div class="computer-results">
+            <div>Computer</div>
+            <div>Score: <span id="#human-score">0</span></div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <button id="rock">&#129704;</button>
+          <button id="paper">&#128240;</button>
+          <button id="scissors">&#x2702;</button>
         </div>
       </div>
-      <div class="buttons-container">
-        <button id="rock">&#129704;</button>
-        <button id="paper">&#128240;</button>
-        <button id="scissors">&#x2702;</button>
+      <div class="show-rounds">
+        <table>
+          <thead>
+            <tr class="column-names">
+              <th>Round</th>
+              <th>Player</th>
+              <th>Computer</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </main>
     <script src="./scripts/rps.js"></script>
