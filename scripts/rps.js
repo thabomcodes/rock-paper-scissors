@@ -102,13 +102,17 @@ const rockBtn = document.querySelector("button#rock");
 const paperBtn = document.querySelector("button#paper");
 const scissorsBtn = document.querySelector("button#scissors");
 
-//function disableButtons();
-
+function disableButtons() {
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
+}
 /* Event Listener */
 rockBtn.addEventListener('click', function () {
     playerChooses('rock');
     this.disabled = gameOver();
     if (this.disabled) {
+        disableButtons();
         setTimeout(showDialog, 2000); // wait 2 seconds and show the dialog box
     }
 });
@@ -117,6 +121,7 @@ paperBtn.addEventListener('click', function () {
     playerChooses('paper')
     this.disabled = gameOver();
     if (this.disabled) {
+        disableButtons();
         setTimeout(showDialog, 2000); // wait 2 seconds and show the dialog box
     }
 });
@@ -124,6 +129,7 @@ scissorsBtn.addEventListener('click', function () {
     playerChooses('scissors')
     this.disabled = gameOver();
     if (this.disabled) {
+        disableButtons();
         setTimeout(showDialog, 2000); // wait seconds and show the dialog box
     }
 });
