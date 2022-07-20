@@ -25,3 +25,9 @@ function playRound(playerSelection, computerSelection) {
         return "Error!";
     }
 }
+
+for (let i = 0; i < 5; i++) {
+    const playerMove = prompt("Rock, Paper or Scissors? ");
+    const computerMove = getComputerChoice();
+    console.log(playRound(playerMove, computerMove))
+}
