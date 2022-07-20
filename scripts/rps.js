@@ -87,14 +87,37 @@ function playerChooses(playerChoice) {
     }
 
 }
-
+function gameOver() {
+    if (computerScore < 5 && playerScore < 5) {
+        return false;
+    }
+    return true;
+}
 
 const rockBtn = document.querySelector("button#rock");
 const paperBtn = document.querySelector("button#paper");
 const scissorsBtn = document.querySelector("button#scissors");
 
 /* Event Listener */
-rockBtn.addEventListener('click', () => playerChooses('rock'))
-paperBtn.addEventListener('click', () => playerChooses('paper'))
-scissorsBtn.addEventListener('click', () => playerChooses('scissors'))
+rockBtn.addEventListener('click', function () {
+    if (!gameOver()) {
+        playerChooses('rock')
+    } else {
+        this.disabled = true;
+    }
+});
+paperBtn.addEventListener('click', function () {
+    if (!gameOver()) {
+        playerChooses('paper')
+    } else {
+        this.disabled = true;
+    }
+});
+scissorsBtn.addEventListener('click', function () {
+    if (!gameOver()) {
+        playerChooses('scissors')
+    } else {
+        this.disabled = true;
+    }
+});
 
