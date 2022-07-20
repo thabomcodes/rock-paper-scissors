@@ -88,7 +88,14 @@ function playerChooses(playerChoice) {
     }
 
 }
+var playerFinalScore = document.querySelector("#score-player");
+var computerFinalScore = document.querySelector("#score-computer");
+var finalResult = document.querySelector(".message");
+
 function showDialog() {
+    finalResult.innerText = (playerScore > computerScore) ? "You win!" : "You lose!";
+    playerFinalScore.innerText = `${playerScore}`;
+    computerFinalScore.innerText = `${computerScore}`;
     dialogbox.style.display = "block";
 }
 function gameOver() {
@@ -133,5 +140,4 @@ scissorsBtn.addEventListener('click', function () {
         setTimeout(showDialog, 2000); // wait seconds and show the dialog box
     }
 });
-
 
