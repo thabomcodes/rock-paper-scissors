@@ -61,6 +61,8 @@ function playerChooses(playerChoice) {
 
     if (roundOutcome == 'win') {
         resultMsg.style.color = "green";
+        console.log(playerScore);
+        pScore.innerText = `${playerScore}`
         if (playerChoice == "scissors") {
             resultMsg.innerText = `You win! ${capitalize(playerChoice)} beat ${capitalize(computerChoice)}.`;
         } else {
@@ -69,6 +71,7 @@ function playerChooses(playerChoice) {
     }
     else if (roundOutcome == 'lose') {
         resultMsg.style.color = "red";
+        cScore.innerText = `${computerScore}`
         if (playerChoice == "scissors") {
             resultMsg.innerText = `You lose! ${capitalize(playerChoice)} are beaten by ${capitalize(computerChoice)}.`;
         } else {
