@@ -16,7 +16,12 @@ function playRound(playerSelection, computerSelection) {
         (playerMove == "scissors" && computerMove == "rock")) {
         return `You lose! ${playerMove} is beaten by ${computerMove}.`;
     }
-    else {
+    else if ((playerMove == "scissors" && computerMove == "paper") ||
+        (playerMove == "rock" && computerMove == "scissors") ||
+        (playerMove == "paper" && computerMove == "rock")) {
         return `You win! ${playerMove} beats ${computerMove}.`;
+    }
+    else {
+        return "Error!";
     }
 }
