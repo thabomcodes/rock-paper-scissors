@@ -8,6 +8,7 @@ let roundNumber = 0;
 const gameContainer = document.querySelector('.game-container');
 const buttonContainer = document.querySelector('.buttons-container')
 const dialogbox = document.querySelector(".gameover-popup");
+const tableBody = document.querySelector("tbody");
 
 // player score
 const pScore = document.querySelector("span#human-score");
@@ -25,6 +26,15 @@ function playRound(playerSelection, computerSelection) {
     roundNumber++;
     const playerMove = playerSelection.toLowerCase();
     const computerMove = computerSelection.toLowerCase();
+
+    const tableRow = document.createElement("tr");
+    tableRow.innerHTML = `
+        <td>${roundNumber}</td>
+        <td>${playerMove}</td>
+        <td>${computerMove}</td>
+    `;
+
+    tableBody.appendChild(tableRow);
 
     if (playerMove == computerMove) {
         return 'tie';
