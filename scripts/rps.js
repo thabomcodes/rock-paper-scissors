@@ -62,7 +62,6 @@ function playerChooses(playerChoice) {
 
     if (roundOutcome == 'win') {
         resultMsg.style.color = "green";
-        console.log(playerScore);
         pScore.innerText = `${playerScore}`
         if (playerChoice == "scissors") {
             resultMsg.innerText = `You win! ${capitalize(playerChoice)} beat ${capitalize(computerChoice)}.`;
@@ -141,3 +140,5 @@ scissorsBtn.addEventListener('click', function () {
     }
 });
 
+const playAgainBtn = document.querySelector("#play-again");
+playAgainBtn.addEventListener('click', () => location.reload());
