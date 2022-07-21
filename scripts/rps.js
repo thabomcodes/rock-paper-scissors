@@ -33,8 +33,12 @@ function playRound(playerSelection, computerSelection) {
         <td>${playerMove}</td>
         <td>${computerMove}</td>
     `;
-
-    tableBody.appendChild(tableRow);
+    const firstRow = tableBody.firstChild;
+    if (!firstRow) {
+        tableBody.appendChild(tableRow);
+    } else {
+        tableBody.insertBefore(tableRow, firstRow);
+    }
 
     if (playerMove == computerMove) {
         return 'tie';
