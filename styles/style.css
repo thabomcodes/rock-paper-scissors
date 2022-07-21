@@ -78,8 +78,8 @@ body {
   padding-left: 100px;
 }
 .show-rounds {
-  padding-top: 100px;
-  max-height: 100vh;
+  margin-top: 100px;
+  max-height: 75vh;
   overflow: auto;
   width: 100%;
   padding-right: 100px;
@@ -102,7 +102,6 @@ th {
   background-color: #0214bb;
   color: white;
 }
-
 .gameover-popup {
   display: none;
   position: fixed;
